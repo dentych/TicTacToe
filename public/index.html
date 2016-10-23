@@ -5,8 +5,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 
+    <script src="/jquery/jquery.min.js"></script>
+
+    <title>TicTacToe</title>
+    <link rel="shortcut icon" type="image/x-icon"
+          href="http://www.iconsdb.com/icons/preview/soylent-red/x-mark-xxl.png">
     <meta charset="UTF-8">
-    <title>Title</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -15,6 +19,35 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+        function gotoRoom() {
+            console.log("Form submitted.");
+            var id = $("#roomid").val();
+            if (id != "" && id != undefined) {
+                window.location.href = "/play/" + id;
+            }
+
+            return false;
+        }
+
+        function createNewRoom() {
+            console.log("Creating new room");
+            var id = makeid();
+
+            window.location.href = "/play/" + id;
+        }
+
+        function makeid()
+        {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for( var i=0; i < 5; i++ )
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -24,7 +57,7 @@
                 <h3>Start new game</h3>
                 Start a new game. You can then invite friends to come play with you.
                 <br><br>
-                <button class="btn btn-primary">Start new game</button>
+                <button class="btn btn-primary" onclick="createNewRoom()">Start new game</button>
             </div>
         </div>
         <div class="col-md-5">
@@ -32,9 +65,9 @@
                 <h3>Join existing game</h3>
                 Join a game that your friend or foe has already created.
                 <br><br>
-                <form action="play" method="get" class="form-inline">
+                <form class="form-inline" onsubmit="return gotoRoom()">
                     <input type="text" class="form-control" placeholder="Room ID" pattern="[\w]+"
-                           title="Letters and digits, no spaces. E.g. AB31" name="id">
+                           title="Letters and digits, no spaces. E.g. AB31" id="roomid" required>
                     <button class="btn btn-default">Join</button>
                 </form>
             </div>

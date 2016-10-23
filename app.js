@@ -7,7 +7,10 @@ var sendOptions = {
     dotfiles: "deny"
 };
 
-app.use("/bootstrap", express.static(path.join(__dirname, "node_modules", "bootstrap/dist")));
+var module_path = path.join(__dirname, "node_modules");
+
+app.use("/bootstrap", express.static(path.join(module_path, "bootstrap/dist")));
+app.use("/jquery", express.static(path.join(module_path, "jquery/dist")));
 
 app.get("/", function(req, res) {
     res.sendFile("index.html", sendOptions, function(err) {
@@ -15,6 +18,10 @@ app.get("/", function(req, res) {
             res.status(err.status).end();
         }
     });
+});
+
+app.get("/play/:id", function(req, res) {
+    res.send("Room ID: " + req.params.id);
 });
 
 app.listen(3000, function() {
