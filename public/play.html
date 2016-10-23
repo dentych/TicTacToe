@@ -12,7 +12,7 @@
           href="http://www.iconsdb.com/icons/preview/soylent-red/x-mark-xxl.png">
     <script src="/jquery/jquery.min.js"></script>
 
-    <title>std template</title>
+    <title>TicTacToe - Playing</title>
 
     <style>
         body {
@@ -20,14 +20,17 @@
         }
 
         .pos-absolute {
-            position:absolute;
+            position: absolute;
         }
     </style>
 
     <script>
         $(document).ready(function () {
+            var splitPath = window.location.pathname.split("/");
+            $("#roomid").text(splitPath[splitPath.length - 1]);
+
             var colWidth = $("#column").width();
-            $(".well").css({height: colWidth + "px"})
+            $(".well").css({height: colWidth + "px"});
         });
     </script>
 </head>
