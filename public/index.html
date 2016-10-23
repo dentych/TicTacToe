@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/x-icon"
+          href="http://www.iconsdb.com/icons/preview/soylent-red/x-mark-xxl.png">
 
     <script src="/jquery/jquery.min.js"></script>
 
     <title>TicTacToe</title>
-    <link rel="shortcut icon" type="image/x-icon"
-          href="http://www.iconsdb.com/icons/preview/soylent-red/x-mark-xxl.png">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <style>
         body {
@@ -66,8 +67,8 @@
                 Join a game that your friend or foe has already created.
                 <br><br>
                 <form class="form-inline" onsubmit="return gotoRoom()">
-                    <input type="text" class="form-control" placeholder="Room ID" pattern="[\w]+"
-                           title="Letters and digits, no spaces. E.g. AB31" id="roomid" required>
+                    <input type="text" class="form-control" placeholder="Room ID" pattern="[\w]+" required
+                           title="Letters and digits, no spaces. E.g. AB31" id="roomid" maxlength="5" minlength="5">
                     <button class="btn btn-default">Join</button>
                 </form>
             </div>

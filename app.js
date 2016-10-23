@@ -21,7 +21,11 @@ app.get("/", function(req, res) {
 });
 
 app.get("/play/:id", function(req, res) {
-    res.send("Room ID: " + req.params.id);
+    res.sendFile("play.html", sendOptions, function(err) {
+        if (err) {
+            res.status(err.status).end();
+        }
+    });
 });
 
 app.listen(3000, function() {
