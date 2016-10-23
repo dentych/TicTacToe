@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <style>
+        body {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-1">
+            <div class="well">
+                <h3>Start new game</h3>
+                Start a new game. You can then invite friends to come play with you.
+                <br><br>
+                <button class="btn btn-primary">Start new game</button>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="well">
+                <h3>Join existing game</h3>
+                Join a game that your friend or foe has already created.
+                <br><br>
+                <form action="play" method="get" class="form-inline">
+                    <input type="text" class="form-control" placeholder="Room ID" pattern="[\w]+"
+                           title="Letters and digits, no spaces. E.g. AB31" name="id">
+                    <button class="btn btn-default">Join</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
